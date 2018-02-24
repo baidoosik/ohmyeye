@@ -58,6 +58,8 @@ def profile(request):
                 profile.save()
                 messages.info(request, '회원가입이 완료됐습니다. '
                                        '이제 눈 건강 정보를 확인하실 수 있습니다.')
+                EyeInfomation.objects.create(profile=profile)
+
                 return redirect('accounts:profile')
             else:
                 return render(request, 'error.html', {
@@ -150,7 +152,7 @@ def get_lastest_ocr(request):
         eye_info = EyeInfomation.objects.filter(profile=profile).first()
         ibi_list = eye_info.make_ibi_list()
         data = {"ok": True, "data": ibi_list}
-        return JsonResponse(ibi_list, status=200)
+        return JsonResponse(ibi_list, status=200, safe=False)
     else:
         data = {"ok": False, "msg": "anoymoususer"}
         return JsonResponse(data, status=403)
