@@ -47,7 +47,7 @@ class Profile(TimeStamp):
         return self.name + '프로필'
 
     def calculate_ocr_am(self, time):
-        ocr = (10/time)*10/16.6
+        ocr = (time)*0.1
         self.ocr_now = ocr
         # 오전
         self.ocr_am_total += ocr
@@ -56,7 +56,7 @@ class Profile(TimeStamp):
         self.save()
 
     def calculate_ocr_pm(self, time):
-        ocr = (10/time)*10/16.6
+        ocr = (time)*0.1
         self.ocr_now = ocr
         # 오후
         self.ocr_pm_total += ocr

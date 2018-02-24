@@ -8,7 +8,7 @@
             <th>#</th>
             <th>이름</th>
             <th>월 눈 깜빡임수</th>
-            <th>평균 OCR</th>
+            <th>평균 IBI</th>
         </tr>
         </thead>
         <tbody>
@@ -17,6 +17,7 @@
                 <th scope="row">{{forloop.counter}}</th>
                 <td>{{ profile.name }}</td>
                 <td>{% widthratio profile.ocr_month_count 1 10 %}</td>
+                <td>{{ profile.ocr_month }}</td>
             </tr>
         {% endfor %}
         </tbody>
