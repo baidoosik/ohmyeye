@@ -448,12 +448,12 @@
                 });{% endcomment %}
                 $('.blink').val(parseInt($('.blink').val()) + 1);
                 var check_value =  parseInt(parseInt($('.blink').val()) + 1);
-                if(check_value ===3 ){
+                if(check_value ===2 ){
                     first_time = $.now();
                     console.log(check_value, first_time);
                 };
 
-                if(check_value !==3 && check_value % 10 === 3){
+                if(check_value !==2 && check_value % 10 === 2){
                     var unix_time = ($.now()-first_time)/1000;
                     console.log(check_value, first_time, $.now());
                     first_time = $.now();
@@ -461,6 +461,11 @@
                     sending_value(unix_time);
 
                 }
+                if(unix_time>100){
+                    unix_time = 0;
+                    check_value = 0;
+                }
+
             }else{
                {% comment %} $('#videoel').css({
                     'border' : 'none'
