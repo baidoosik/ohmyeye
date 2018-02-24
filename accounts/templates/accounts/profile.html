@@ -1,5 +1,6 @@
 {% extends 'accounts/layout.html' %}
 {% block contents %}
+<h2>회원 정보</h2>
 <form action="" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <ul>
@@ -7,4 +8,23 @@
     </ul>
     <input type="submit"/>
 </form>
+
+<h2>실시간으로 내 눈 상태 확인하기</h2>
+<div>
+
+    <h3>현재 나의 OCR: {{ profile.ocr_now }}</h3>
+    {% if profile.ocr_now > 1 %}
+        <h4 style="color: green">훌륭한 상태입니다.</h4>
+    {% else %}
+        <h4 style="color: red">당신의 소중한 눈이 위험합니다. </h4>
+    {% endif %}
+    <h3>이번달 현재까지 나의 총 눈깜박임 수:{% widthratio profile.ocr_month_total 1 10 %}</h3>
+    <h3>이번달 현재까지 나의 평균 OCR: {{ profile.ocr_month }}</h3>
+    <ul>
+        <li>오늘 오전 나의 OCR: {{ profile.ocr_am }}</li>
+        <li>오늘 오전 나의 총 눈깜빡임 수 {% widthratio profile.ocr_am_total 1 10 %}</li>
+        <li>오늘 오후 나의 OCR: {{ profile.ocr_am }}</li>
+        <li>오늘 오후 나의 총 눈깜빡임 수 {% widthratio profile.ocr_pm_total 1 10 %}</li>
+    </ul>
+</div>
 {% endblock %}
