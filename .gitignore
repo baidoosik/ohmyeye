@@ -30,3 +30,7 @@ staticfiles
 
 # ngrok
 ngrok
+
+#idea
+.idea/
+.idea/*
