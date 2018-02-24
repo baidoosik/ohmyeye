@@ -3,264 +3,489 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>OH MY EYE</title>
-    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet" type="text/css">
-    <script type="text/javascript" async="" src="{% static "js/ga.js" %}"></script>
-    <script type="text/javascript" async="" src="{% static "js/jquery-1.11.0.min.js" %}"></script>
+	<title>EYE GAMNI</title>
+	<meta charset="UTF-8">
+	<!-- Favicon -->
+	<link href="{% static "image/favicon.ico" %}" rel="shortcut icon"/>
 
-    <style>
-        @import url(https://fonts.googleapis.com/css?family=Lato:300italic,700italic,300,700);
-        body {
-            font-family: 'Lato';
-            background-color: #f0f0f0;
-            margin: 0px auto;
-            max-width: 1150px;
-        }
-        #overlay {
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            -o-transform : scaleX(-1);
-            -webkit-transform : scaleX(-1);
-            transform : scaleX(-1);
-            -ms-filter : fliph; /*IE*/
-            filter : fliph; /*IE*/
-        }
-        #videoel {
-            -o-transform : scaleX(-1);
-            -webkit-transform : scaleX(-1);
-            transform : scaleX(-1);
-            -ms-filter : fliph; /*IE*/
-            filter : fliph; /*IE*/
-        }
-        #container {
-            position : relative;
-            width : 370px;
-            /*margin : 0px auto;*/
-        }
-        #content {
-            margin-top : 70px;
-            margin-left : 100px;
-            margin-right : 100px;
-            max-width: 950px;
-        }
-        h2 {
-            font-weight : 400;
-        }
-        .nogum {
-            display : none;
-        }
-        .btn {
-            font-family: 'Lato';
-            font-size: 16px;
-        }
-        .hide {
-            display : none;
-        }
-        .nohide {
-            display : block;
-        }
-    </style>
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,700|Roboto:300,400,700" rel="stylesheet">
 
-    <script>
-        // getUserMedia only works over https in Chrome 47+, so we redirect to https. Also notify user if running from file.
-        if (window.location.protocol == "file:") {
-            alert("You seem to be running this example directly from a file. Note that these examples only work when served from a server or localhost due to canvas cross-domain restrictions.");
-        } else if (window.location.hostname !== "localhost" && window.location.protocol !== "https:"){
-            window.location.protocol = "https";
-        }
-    </script>
-    <script type="text/javascript">
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-32642923-1']);
-        _gaq.push(['_trackPageview']);
-        (function() {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
-    </script>
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}"/>
+	<link rel="stylesheet" href="{% static "css/font-awesome.min.css" %}"/>
+	<link rel="stylesheet" href="{% static "css/flaticon.css" %}"/>
+	<link rel="stylesheet" href="{% static "css/magnific-popup.css" %}"/>
+	<link rel="stylesheet" href="{% static "css/owl.carousel.css" %}"/>
+	<link rel="stylesheet" href="{% static "css/style.css" %}"/>
+
+
+	<!--[if lt IE 9]>
+	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
 </head>
-
 <body>
-<script src="{% static "js/utils.js" %}"></script>
-<script src="{% static "js//clmtrackr.js" %}"></script>
-<script src="{% static "js//Stats.js" %}"></script>
+	<!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader">
+			<img src="image/logo.png" alt="">
+			<h2>눈 깜빡이는 중...</h2>
+		</div>
+	</div>
 
-<div id="content">
-    <div id="container">
-        <video id="videoel" width="400" height="300" preload="auto" loop="" playsinline="" autoplay=""></video>
-        <canvas id="overlay" width="400" height="300"></canvas>
+
+	<!-- Header section -->
+	<header class="header-section">
+		<div class="logo">
+			<img src="image/logo.png" alt=""><!-- Logo -->
+		</div>
+		<!-- Navigation -->
+		<div class="responsive"><i class="fa fa-bars"></i></div>
+		<nav>
+			<ul class="menu-list">
+				<li class="active"><a href="home.html">메인</a></li>
+				<li><a href="eye_check">Services</a></li>
+				<li><a href="blog.html">Blog</a></li>
+				<li><a href="contact.html">Contact</a></li>
+				<li><a href="elements.html">Elements</a></li>
+			</ul>
+		</nav>
+	</header>
+	<!-- Header section end -->
 
 
-        <div class="logs">
-            <p>
-                <span>left eye</span>
-                <span class="left_eye"></span>
-            </p>
-
-            <p>
-                <span>right eye</span>
-                <span class="right_eye"></span>
-            </p>
-             <p>
-                <span>blink</span>
-                <input type="text" class="blink" value="0"/>
-            </p>
+	<!-- Intro Section -->
+	<div class="hero-section">
+		<div class="hero-content">
+			<div class="hero-center">
+				<img src="image/big-logo.png" alt="">
+				<p>눈 아이감니...</p>
+			</div>
+		</div>
+		<!-- slider -->
+		<div id="main_img">
+            <img src="{% static "image/main.gif" %}"/>
         </div>
-    </div>
+	</div>
+	<!-- Intro Section -->
 
-    <script>
-        var vid = document.getElementById('videoel');
-        var vid_width = vid.width;
-        var vid_height = vid.height;
-        var overlay = document.getElementById('overlay');
-        var overlayCC = overlay.getContext('2d');
-        /*********** Setup of video/webcam and checking for webGL support *********/
-        function enablestart() {
-            var startbutton = document.getElementById('startbutton');
-            startbutton.value = "start";
-            startbutton.disabled = null;
-        }
-        var insertAltVideo = function(video) {
-            // insert alternate video if getUserMedia not available
-            if (supports_video()) {
-                if (supports_webm_video()) {
-                    video.src = "./media/cap12_edit.webm";
-                } else if (supports_h264_baseline_video()) {
-                    video.src = "./media/cap12_edit.mp4";
-                } else {
-                    return false;
-                }
-                return true;
-            } else return false;
-        }
-        function adjustVideoProportions() {
-            // resize overlay and video if proportions of video are not 4:3
-            // keep same height, just change width
-            var proportion = vid.videoWidth/vid.videoHeight;
-            vid_width = Math.round(vid_height * proportion);
-            vid.width = vid_width;
-            overlay.width = vid_width;
-        }
-        function gumSuccess( stream ) {
-            // add camera stream if getUserMedia succeeded
-            if ("srcObject" in vid) {
-                vid.srcObject = stream;
-            } else {
-                vid.src = (window.URL && window.URL.createObjectURL(stream));
-            }
-            vid.onloadedmetadata = function() {
-                adjustVideoProportions();
-                vid.play();
-            }
-            vid.onresize = function() {
-                adjustVideoProportions();
-                if (trackingStarted) {
-                    ctrack.stop();
-                    ctrack.reset();
-                    ctrack.start(vid);
-                }
-            }
-        }
-        function gumFail() {
-            // fall back to video if getUserMedia failed
-            insertAltVideo(vid);
-            document.getElementById('gum').className = "hide";
-            document.getElementById('nogum').className = "nohide";
-            alert("There was some problem trying to fetch video from your webcam, using a fallback video instead.");
-        }
-        navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
-        window.URL = window.URL || window.webkitURL || window.msURL || window.mozURL;
-        // set up video
-        if (navigator.mediaDevices) {
-            navigator.mediaDevices.getUserMedia({video : true}).then(gumSuccess).catch(gumFail);
-        } else if (navigator.getUserMedia) {
-            navigator.getUserMedia({video : true}, gumSuccess, gumFail);
-        } else {
-            insertAltVideo(vid);
-            document.getElementById('gum').className = "hide";
-            document.getElementById('nogum').className = "nohide";
-            alert("Your browser does not seem to support getUserMedia, using a fallback video instead.");
-        }
-        vid.addEventListener('canplay', enablestart, false);
-        /*********** Code for face tracking *********/
-        var ctrack = new clm.tracker();
-        ctrack.init();
-        var trackingStarted = false;
-        function startVideo() {
-            // start video
-            vid.play();
-            // start tracking
-            ctrack.start(vid);
-            trackingStarted = true;
-            // start loop to draw face
-            drawLoop();
-        }
-        function drawLoop() {
-            requestAnimFrame(drawLoop);
-            overlayCC.clearRect(0, 0, vid_width, vid_height);
-            //psrElement.innerHTML = "score :" + ctrack.getScore().toFixed(4);
-            if (ctrack.getCurrentPosition()) {
-                ctrack.draw(overlay);
-            }
-        }
-        /*********** Code for stats **********/
-        stats = new Stats();
-        stats.domElement.style.position = 'absolute';
-        stats.domElement.style.top = '0px';
-        document.getElementById('container').appendChild( stats.domElement );
-        // update stats on every iteration
-        document.addEventListener('clmtrackrIteration', function(event) {
-            stats.update();
-        }, false);
-        var l_eye, l_eye_old, r_eye, r_eye_old, v_point, v_point_old;
-        function positionLoop() {
-            requestAnimationFrame(positionLoop);
-            var positions = ctrack.getCurrentPosition();
-            //비교 할 값 세팅
-            l_eye_old = l_eye;
-            r_eye_old = r_eye;
-            v_point_old = v_point;
-            //값 세팅
-            l_eye = positions[24][1];
-            r_eye = positions[29][1];
-            v_point = positions[7][1];
-            //test code
-            $('.left_eye').text(l_eye);
-            $('.right_eye').text(r_eye);
-            var eye_value = 2;
-            if(l_eye - l_eye_old > eye_value && r_eye - r_eye_old > eye_value && v_point - v_point_old < 0.5){
-               {% comment %} $('#videoel').css({
-                    'border' : '5px solid red'
-                });{% endcomment %}
-                var check_value = $('.blink').val(parseInt($('.blink').val()) + 1);
-                if(check_value == 10){
-                    //ajax
-                    sending_value();
-                }
-            }else{
-               {% comment %} $('#videoel').css({
-                    'border' : 'none'
-                });{% endcomment %}
-            }
-            //test
-           {% comment %} console.log(positions[24]);
-            console.log(positions[29]);{% endcomment %}
-        }
-        //10번째 호출
-        function sending_value(){
-            var unix_time = $.now();
-            $.ajax({
-            })
-        }
-        //start
-        startVideo();
-        //get eye position
-        positionLoop();
-    </script>
-</div>
+
+	<!-- About section -->
+	<div class="about-section">
+		<div class="overlay"></div>
+		<!-- card section -->
+		<div class="card-section">
+			<div class="container">
+				<div class="row">
+					<!-- single card -->
+					<div class="col-md-4 col-sm-6">
+						<div class="lab-card">
+							<div class="icon">
+								<i class="flaticon-023-flask"></i>
+							</div>
+							<h2>Get in the lab</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
+						</div>
+					</div>
+					<!-- single card -->
+					<div class="col-md-4 col-sm-6">
+						<div class="lab-card">
+							<div class="icon">
+								<i class="flaticon-011-compass"></i>
+							</div>
+							<h2>Projects online</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
+						</div>
+					</div>
+					<!-- single card -->
+					<div class="col-md-4 col-sm-12">
+						<div class="lab-card">
+							<div class="icon">
+								<i class="flaticon-037-idea"></i>
+							</div>
+							<h2>SMART MARKETING</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- card section end-->
+
+
+		<!-- About contant -->
+		<div class="about-contant">
+			<div class="container">
+				<div class="section-title">
+					<h2>Get in <span>the Lab</span> and discover the world</h2>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequat ante ac congue. Quisque porttitor porttitor tempus. Donec maximus ipsum non ornare vporttitor porttitorestibulum. Sed libero nibh, feugiat at enim id, bibendum sollicitudin arcu.</p>
+					</div>
+					<div class="col-md-6">
+						<p>Cras ex mauris, ornare eget pretium sit amet, dignissim et turpis. Nunc nec maximus dui, vel suscipit dolor. Donec elementum velit a orci facilisis rutrum. Nam convallis vel erat id dictum. Sed ut risus in orci convallis viverra a eget nisi. Aenean pellentesque elit vitae eros dignissim ultrices. Quisque porttitor porttitorlaoreet vel risus et luctus.</p>
+					</div>
+				</div>
+				<div class="text-center mt60">
+					<a href="" class="site-btn">Browse</a>
+				</div>
+				<!-- popup video -->
+				<div class="intro-video">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2">
+							<img src="{% static "image/video.jpg" %}" alt="">
+							<a href="https://www.youtube.com/watch?v=JgHfx2v9zOU" class="video-popup">
+								<i class="fa fa-play"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- About section end -->
+
+
+	<!-- Testimonial section -->
+	<div class="testimonial-section pb100">
+		<div class="test-overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-4">
+					<div class="section-title left">
+						<h2>What our clients say</h2>
+					</div>
+					<div class="owl-carousel" id="testimonial-slide">
+						<!-- single testimonial -->
+						<div class="testimonial">
+							<span>‘​‌‘​‌</span>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
+							<div class="client-info">
+								<div class="avatar">
+									<img src="{% static "image/avatar/01.jpg" %}" alt="">
+								</div>
+								<div class="client-name">
+									<h2>Michael Smith</h2>
+									<p>CEO Company</p>
+								</div>
+							</div>
+						</div>
+						<!-- single testimonial -->
+						<div class="testimonial">
+							<span>‘​‌‘​‌</span>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
+							<div class="client-info">
+								<div class="avatar">
+									<img src="{% static "image/avatar/02.jpg" %}" alt="">
+								</div>
+								<div class="client-name">
+									<h2>Michael Smith</h2>
+									<p>CEO Company</p>
+								</div>
+							</div>
+						</div>
+						<!-- single testimonial -->
+						<div class="testimonial">
+							<span>‘​‌‘​‌</span>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
+							<div class="client-info">
+								<div class="avatar">
+									<img src="{% static "image/avatar/01.jpg" %}" alt="">
+								</div>
+								<div class="client-name">
+									<h2>Michael Smith</h2>
+									<p>CEO Company</p>
+								</div>
+							</div>
+						</div>
+						<!-- single testimonial -->
+						<div class="testimonial">
+							<span>‘​‌‘​‌</span>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
+							<div class="client-info">
+								<div class="avatar">
+									<img src="{% static "image/avatar/02.jpg" %}" alt="">
+								</div>
+								<div class="client-name">
+									<h2>Michael Smith</h2>
+									<p>CEO Company</p>
+								</div>
+							</div>
+						</div>
+						<!-- single testimonial -->
+						<div class="testimonial">
+							<span>‘​‌‘​‌</span>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
+							<div class="client-info">
+								<div class="avatar">
+									<img src="{% static "image/avatar/01.jpg" %}" alt="">
+								</div>
+								<div class="client-name">
+									<h2>Michael Smith</h2>
+									<p>CEO Company</p>
+								</div>
+							</div>
+						</div>
+						<!-- single testimonial -->
+						<div class="testimonial">
+							<span>‘​‌‘​‌</span>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
+							<div class="client-info">
+								<div class="avatar">
+									<img src="{% static "image/avatar/02.jpg" %}" alt="">
+								</div>
+								<div class="client-name">
+									<h2>Michael Smith</h2>
+									<p>CEO Company</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Testimonial section end-->
+
+
+	<!-- Services section -->
+	<div class="services-section spad">
+		<div class="container">
+			<div class="section-title dark">
+				<h2>Get in <span>the Lab</span> and see the services</h2>
+			</div>
+			<div class="row">
+				<!-- single service -->
+				<div class="col-md-4 col-sm-6">
+					<div class="service">
+						<div class="icon">
+							<i class="flaticon-023-flask"></i>
+						</div>
+						<div class="service-text">
+							<h2>Get in the lab</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
+						</div>
+					</div>
+				</div>
+				<!-- single service -->
+				<div class="col-md-4 col-sm-6">
+					<div class="service">
+						<div class="icon">
+							<i class="flaticon-011-compass"></i>
+						</div>
+						<div class="service-text">
+							<h2>Projects online</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
+						</div>
+					</div>
+				</div>
+				<!-- single service -->
+				<div class="col-md-4 col-sm-6">
+					<div class="service">
+						<div class="icon">
+							<i class="flaticon-037-idea"></i>
+						</div>
+						<div class="service-text">
+							<h2>SMART MARKETING</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
+						</div>
+					</div>
+				</div>
+				<!-- single service -->
+				<div class="col-md-4 col-sm-6">
+					<div class="service">
+						<div class="icon">
+							<i class="flaticon-039-vector"></i>
+						</div>
+						<div class="service-text">
+							<h2>Social Media</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
+						</div>
+					</div>
+				</div>
+				<!-- single service -->
+				<div class="col-md-4 col-sm-6">
+					<div class="service">
+						<div class="icon">
+							<i class="flaticon-036-brainstorming"></i>
+						</div>
+						<div class="service-text">
+							<h2>Brainstorming</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
+						</div>
+					</div>
+				</div>
+				<!-- single service -->
+				<div class="col-md-4 col-sm-6">
+					<div class="service">
+						<div class="icon">
+							<i class="flaticon-026-search"></i>
+						</div>
+						<div class="service-text">
+							<h2>Documented</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
+						</div>
+					</div>
+				</div>
+				<!-- single service -->
+				<div class="col-md-4 col-sm-6">
+					<div class="service">
+						<div class="icon">
+							<i class="flaticon-018-laptop-1"></i>
+						</div>
+						<div class="service-text">
+							<h2>Responsive</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
+						</div>
+					</div>
+				</div>
+				<!-- single service -->
+				<div class="col-md-4 col-sm-6">
+					<div class="service">
+						<div class="icon">
+							<i class="flaticon-043-sketch"></i>
+						</div>
+						<div class="service-text">
+							<h2>Retina ready</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
+						</div>
+					</div>
+				</div>
+				<!-- single service -->
+				<div class="col-md-4 col-sm-6">
+					<div class="service">
+						<div class="icon">
+							<i class="flaticon-012-cube"></i>
+						</div>
+						<div class="service-text">
+							<h2>Ultra modern</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="text-center">
+				<a href="" class="site-btn">Browse</a>
+			</div>
+		</div>
+	</div>
+	<!-- services section end -->
+
+
+	<!-- Team Section -->
+	<div class="team-section spad">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="section-title">
+				<h2>Get in <span>the Lab</span> and  meet the team</h2>
+			</div>
+			<div class="row">
+				<!-- single member -->
+				<div class="col-sm-4">
+					<div class="member">
+						<img src="image/team/1.jpg" alt="">
+						<h2>Christinne Williams</h2>
+						<h3>Project Manager</h3>
+					</div>
+				</div>
+				<!-- single member -->
+				<div class="col-sm-4">
+					<div class="member">
+						<img src="image/team/2.jpg" alt="">
+						<h2>Christinne Williams</h2>
+						<h3>Junior developer</h3>
+					</div>
+				</div>
+				<!-- single member -->
+				<div class="col-sm-4">
+					<div class="member">
+						<img src="image/team/3.jpg" alt="">
+						<h2>Christinne Williams</h2>
+						<h3>Digital designer</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Team Section end-->
+
+
+	<!-- Promotion section -->
+	<div class="promotion-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-9">
+					<h2>Are you ready to stand out?</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est.</p>
+				</div>
+				<div class="col-md-3">
+					<div class="promo-btn-area">
+						<a href="" class="site-btn btn-2">Browse</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Promotion section end-->
+
+
+	<!-- Contact section -->
+	<div class="contact-section spad fix">
+		<div class="container">
+			<div class="row">
+				<!-- contact info -->
+				<div class="col-md-5 col-md-offset-1 contact-info col-push">
+					<div class="section-title left">
+						<h2>Contact us</h2>
+					</div>
+					<p>Cras ex mauris, ornare eget pretium sit amet, dignissim et turpis. Nunc nec maximus dui, vel suscipit dolor. Donec elementum velit a orci facilisis rutrum. </p>
+					<h3 class="mt60">Main Office</h3>
+					<p class="con-item">C/ Libertad, 34 <br> 05200 Arévalo </p>
+					<p class="con-item">0034 37483 2445 322</p>
+					<p class="con-item">hello@company.com</p>
+				</div>
+				<!-- contact form -->
+				<div class="col-md-6 col-pull">
+					<form class="form-class" id="con_form">
+						<div class="row">
+							<div class="col-sm-6">
+								<input type="text" name="name" placeholder="Your name">
+							</div>
+							<div class="col-sm-6">
+								<input type="text" name="email" placeholder="Your email">
+							</div>
+							<div class="col-sm-12">
+								<input type="text" name="subject" placeholder="Subject">
+								<textarea name="message" placeholder="Message"></textarea>
+								<button class="site-btn">send</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Contact section end-->
+
+
+	<!-- Footer section -->
+	<footer class="footer-section">
+		<h2>2018 All rights reserved. Designed by eyegamni</h2>
+	</footer>
+	<!-- Footer section end -->
+
+
+
+
+	<!--====== Javascripts & Jquery ======-->
+	<script src="{% static "js/jquery-2.1.4.min.js" %}"></script>
+	<script src="{% static "js/bootstrap.min.js" %}"></script>
+	<script src="{% static "js/magnific-popup.min.js" %}"></script>
+	<script src="{% static "js/owl.carousel.min.js" %}"></script>
+	<script src="{% static "js/circle-progress.min.js" %}"></script>
+	<script src="{% static "js/main.js" %}"></script>
 </body>
-
 </html>
