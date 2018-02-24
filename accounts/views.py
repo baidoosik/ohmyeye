@@ -148,7 +148,9 @@ def get_lastest_ocr(request):
     if request.user.is_authenticated():
         profile = Profile.objects.filter(user=request.user).first()
         eye_info = EyeInfomation.objects.filter(profile=profile).first()
-        return JsonResponse(eye_info.make_ibi_list)
+        ibi_list = eye_info.make_ibi_list()
+        data = {"ok": True, "data": ibi_list}
+        return JsonResponse(ibi_list, status=200)
     else:
         data = {"ok": False, "msg": "anoymoususer"}
         return JsonResponse(data, status=403)
