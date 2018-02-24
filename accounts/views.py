@@ -105,6 +105,7 @@ get_ocr_data
 def get_ocr_data(request):
     if request.user.is_authenticated():
         ocr_time = request.GET.get('ocr_time')
+        ocr_time = float(ocr_time)
         profile = Profile.objects.filter(user=request.user).first()
         if datetime.datetime.now().hour < 12:
             profile.calculate_ocr_am(ocr_time)

@@ -448,11 +448,18 @@
                 });{% endcomment %}
                 $('.blink').val(parseInt($('.blink').val()) + 1);
                 var check_value =  parseInt(parseInt($('.blink').val()) + 1);
-                {#console.log(parseInt(check_value) % 10 );#}
+                if(check_value ===3 ){
+                    first_time = $.now();
+                    console.log(check_value, first_time);
+                };
 
-                if(check_value % 10 == 0){
-                    console.log("10!!!!!!!!!!!!!!!");
-                    sending_value();
+                if(check_value !==3 && check_value % 10 === 3){
+                    var unix_time = ($.now()-first_time)/1000;
+                    console.log(check_value, first_time, $.now());
+                    first_time = $.now();
+
+                    sending_value(unix_time);
+
                 }
             }else{
                {% comment %} $('#videoel').css({
@@ -464,12 +471,12 @@
             console.log(positions[29]);{% endcomment %}
         }
         //10번째 호출
-        function sending_value(){
-            var unix_time = $.now();
+        function sending_value(time){
+            console.log(time);
             $.ajax({
                 url: "accounts/ocrdata",
                 method: "GET",
-                data: { "ocr_time" : 13},
+                data: { "ocr_time" : time},
                 success : function(data){
                     console.log(data);
                 },error : function(e){
