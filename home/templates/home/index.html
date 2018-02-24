@@ -45,11 +45,11 @@
 		<div class="responsive"><i class="fa fa-bars"></i></div>
 		<nav>
 			<ul class="menu-list">
-				<li class="active"><a href="home.html">메인</a></li>
-				<li><a href="eye_check">Services</a></li>
-				<li><a href="blog.html">Blog</a></li>
-				<li><a href="contact.html">Contact</a></li>
-				<li><a href="elements.html">Elements</a></li>
+				<li class="active"><a href="{% url "home:index" %}">메인</a></li>
+				<li><a href="{% url "home:eye_check" %}">Eye-Check</a></li>
+				<li><a href="{% url "accounts:profile" %}">My eye</a></li>
+				<li><a href="{% url "accounts:rank_user" %}">Eye-Rank</a></li>
+				<li><a href="elements.html">Eye-Tip</a></li>
 			</ul>
 		</nav>
 	</header>
