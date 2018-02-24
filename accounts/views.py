@@ -67,7 +67,7 @@ def profile(request):
 
     else:
         if request.method == 'POST':
-            form = ProfileModelForm(None, request.POST,
+            form = ProfileModelForm(request.POST,
                                     request.FILES, instance=profile)
             if form.is_valid():
                 profile = form.save(commit=True)
@@ -82,8 +82,14 @@ def profile(request):
                     'errors': form.errors
                 })
 
-        form = ProfileModelForm(None, instance=profile)
+        form = ProfileModelForm(instance=profile)
         return render(request, 'accounts/profile.html', {
             'form': form,
             'profile': profile
         })
+
+
+@login_required
+def get_ocr_data(request):
+    profile = Profile.objects.filter(user=request.user).first()
+    ocr_time = request.GET.get('ocr_time')

@@ -7,4 +7,5 @@ urlpatterns = [
     url(r'social/login/$', views.login, name='social_login'),
     url(r'profile/$', views.profile, name='profile'),
     url(r'logout/$', logout, name='logout'),
+    url(r'ocrdata/', views.get_ocr_data, name='get_ocr_data')
 ]

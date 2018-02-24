@@ -24,3 +24,8 @@ class Profile(TimeStamp):
     name = models.CharField(max_length=128, blank=False, null=False)
     email = models.EmailField(null=False, blank=False)
     phone = models.CharField(max_length=128)
+    ocr_am = models.FloatField(default=0.0)
+    ocr_pm = models.FloatField(default=0.0)
+    ocr_now = models.FloatField(default=0.0)
+    ocr_yesterday = models.FloatField(default=0.0)
+    ocr_month = models.FloatField(default=0.0)
