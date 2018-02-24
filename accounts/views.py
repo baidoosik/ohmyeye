@@ -7,7 +7,9 @@ from django.contrib import messages
 from allauth.socialaccount.models import SocialApp
 from allauth.socialaccount.templatetags.socialaccount import get_providers
 from .models import Profile
+from eye.models import EyeInfomation
 from .forms import ProfileModelForm
+
 # Create your views here.
 
 '''
@@ -107,10 +109,13 @@ def get_ocr_data(request):
         ocr_time = request.GET.get('ocr_time')
         ocr_time = float(ocr_time)
         profile = Profile.objects.filter(user=request.user).first()
+        eye_info = EyeInfomation.objects.filter(profile=profile).first()
         if datetime.datetime.now().hour < 12:
             profile.calculate_ocr_am(ocr_time)
+
         else:
             profile.calculate_ocr_pm(ocr_time)
+        eye_info.input_ibi_data(ocr_time)
         data = {"ok": True}
         return JsonResponse(data, status=200)
     else:
@@ -130,3 +135,13 @@ def rank_user(request):
     return render(request, 'accounts/rank_user.html', {
         "profile_list": profile_list
     })
+
+
+def get_lastest_ocr(request):
+    if request.user.is_authenticated():
+        profile = Profile.objects.filter(user=request.user).first()
+        eye_info = EyeInfomation.objects.filter(profile=profile).first()
+        return JsonResponse(eye_info.make_ibi_list)
+    else:
+        data = {"ok": False, "msg": "anoymoususer"}
+        return JsonResponse(data, status=403)

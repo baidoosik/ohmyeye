@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.facebook',
     'core',
     'accounts',
+    'eye'
 ]
 
 MIDDLEWARE = [
