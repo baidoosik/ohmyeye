@@ -2,23 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="09e63cb2-6e80-4c77-9903-c2e53a50c9a3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ohmyeye/static/image/social-facebook.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/accounts/forms.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/accounts/templates/accounts/profile.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/accounts/templates/accounts/profile_register.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/accounts/urls.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/home/templates/layout.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ohmyeye/templates/layout.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ohmyeye/static/js/webgazer_min.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ohmyeye/static/css/bootstrap.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ohmyeye/static/css/style.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ohmyeye/static/js/Stats.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ohmyeye/static/js/bootstrap.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ohmyeye/static/js/clmtrackr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ohmyeye/static/js/ga.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ohmyeye/static/js/jquery-1.11.0.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ohmyeye/static/js/utils.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ohmyeye/static/js/webgazer.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/home/models.py" afterPath="$PROJECT_DIR$/home/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/home/templates/home/index.html" afterPath="$PROJECT_DIR$/home/templates/home/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/home/views.py" afterPath="$PROJECT_DIR$/home/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ohmyeye/settings.py" afterPath="$PROJECT_DIR$/ohmyeye/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ohmyeye/static/js/webgazer.js" afterPath="$PROJECT_DIR$/ohmyeye/static/js/webgazer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ohmyeye/urls.py" afterPath="$PROJECT_DIR$/ohmyeye/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/requirements.txt" afterPath="$PROJECT_DIR$/requirements.txt" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -33,20 +28,30 @@
         <entry file="file://$PROJECT_DIR$/ohmyeye/settings.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="615">
-              <caret line="41" column="14" lean-forward="true" selection-start-line="41" selection-start-column="14" selection-end-line="41" selection-end-column="14" />
+              <caret line="41" column="14" lean-forward="false" selection-start-line="41" selection-start-column="14" selection-end-line="41" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/accounts/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="375">
-              <caret line="25" column="44" lean-forward="true" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="44" />
+              <caret line="25" column="44" lean-forward="false" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="44" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/home/templates/home/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="626">
+              <caret line="265" column="7" lean-forward="false" selection-start-line="265" selection-start-column="7" selection-end-line="265" selection-end-column="7" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -76,7 +81,6 @@
         <option value="$PROJECT_DIR$/home/views.py" />
         <option value="$PROJECT_DIR$/accounts/urls.py" />
         <option value="$PROJECT_DIR$/accounts/forms.py" />
-        <option value="$PROJECT_DIR$/home/templates/home/index.html" />
         <option value="$PROJECT_DIR$/ohmyeye/urls.py" />
         <option value="$PROJECT_DIR$/accounts/views.py" />
         <option value="$PROJECT_DIR$/accounts/admin.py" />
@@ -87,6 +91,7 @@
         <option value="$PROJECT_DIR$/ohmyeye/templates/layout.html" />
         <option value="$PROJECT_DIR$/ohmyeye/settings.py" />
         <option value="$PROJECT_DIR$/accounts/models.py" />
+        <option value="$PROJECT_DIR$/home/templates/home/index.html" />
       </list>
     </option>
   </component>
@@ -132,6 +137,16 @@
               <item name="ohmyeye" type="b2602c69:ProjectViewProjectNode" />
               <item name="ohmyeye" type="462c0819:PsiDirectoryNode" />
               <item name="accounts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ohmyeye" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ohmyeye" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ohmyeye" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ohmyeye" type="462c0819:PsiDirectoryNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -306,7 +321,7 @@
         <state relative-caret-position="60">
           <caret line="4" column="22" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="22" />
           <folding>
-            <element signature="e#0#24#0" expanded="true" />
+            <element signature="e#0#24#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -327,20 +342,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/home/templates/home/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="10" lean-forward="false" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ohmyeye/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" column="61" lean-forward="false" selection-start-line="21" selection-start-column="61" selection-end-line="21" selection-end-column="61" />
           <folding>
-            <element signature="e#641#682#0" expanded="true" />
+            <element signature="e#641#682#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -408,7 +415,7 @@
         <state relative-caret-position="135">
           <caret line="9" column="1" lean-forward="false" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
           <folding>
-            <element signature="e#0#32#0" expanded="true" />
+            <element signature="e#0#32#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -418,7 +425,7 @@
         <state relative-caret-position="735">
           <caret line="49" column="17" lean-forward="false" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="17" />
           <folding>
-            <element signature="e#0#45#0" expanded="true" />
+            <element signature="e#0#45#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -434,7 +441,7 @@
     <entry file="file://$PROJECT_DIR$/ohmyeye/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="615">
-          <caret line="41" column="14" lean-forward="true" selection-start-line="41" selection-start-column="14" selection-end-line="41" selection-end-column="14" />
+          <caret line="41" column="14" lean-forward="false" selection-start-line="41" selection-start-column="14" selection-end-line="41" selection-end-column="14" />
           <folding />
         </state>
       </provider>
@@ -442,10 +449,18 @@
     <entry file="file://$PROJECT_DIR$/accounts/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
-          <caret line="25" column="44" lean-forward="true" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="44" />
+          <caret line="25" column="44" lean-forward="false" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="44" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/templates/home/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="626">
+          <caret line="265" column="7" lean-forward="false" selection-start-line="265" selection-start-column="7" selection-end-line="265" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
