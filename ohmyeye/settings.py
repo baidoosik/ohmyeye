@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.facebook',
     'core',
     'accounts',
-    'eye'
 ]
 
 MIDDLEWARE = [
@@ -120,6 +119,8 @@ AUTHENTICATION_BACKENDS = [
 SITE_ID = 1
 
 SOCIALACCOUNT_EMAIL_VERIFICATION = 'none'
+SOCIALACCOUNT_EMAIL_REQUIRED = False
+SOCIALACCOUNT_QUERY_EMAIL = True
 
 
 # Internationalization
