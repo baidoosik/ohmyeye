@@ -18,13 +18,13 @@
     {% else %}
         <h4 style="color: red">당신의 소중한 눈이 위험합니다. </h4>
     {% endif %}
-    <h3>이번달 현재까지 나의 총 눈깜박임 수:{% widthratio profile.ocr_month_total 1 10 %}</h3>
+    <h3>이번달 현재까지 나의 총 눈깜박임 수:{% widthratio profile.ocr_month_count 1 10 %}</h3>
     <h3>이번달 현재까지 나의 평균 OCR: {{ profile.ocr_month }}</h3>
     <ul>
         <li>오늘 오전 나의 OCR: {{ profile.ocr_am }}</li>
-        <li>오늘 오전 나의 총 눈깜빡임 수 {% widthratio profile.ocr_am_total 1 10 %}</li>
+        <li>오늘 오전 나의 총 눈깜빡임 수 {% widthratio profile.ocr_am_count 1 10 %}</li>
         <li>오늘 오후 나의 OCR: {{ profile.ocr_am }}</li>
-        <li>오늘 오후 나의 총 눈깜빡임 수 {% widthratio profile.ocr_pm_total 1 10 %}</li>
+        <li>오늘 오후 나의 총 눈깜빡임 수 {% widthratio profile.ocr_pm_count 1 10 %}</li>
     </ul>
 </div>
 {% endblock %}

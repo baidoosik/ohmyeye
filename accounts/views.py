@@ -49,20 +49,21 @@ def profile(request):
     profile = Profile.objects.filter(user=request.user).first()
     if profile is None:
         if request.method == 'POST':
-            form = ProfileModelForm(None, request.POST, request.FILES)
+            form = ProfileModelForm(request.POST, request.FILES)
             if form.is_valid():
-                profile = form.save(commit=True)
+                profile = form.save(commit=False)
+                profile.user = request.user
+                profile.save()
                 messages.info(request, '회원가입이 완료됐습니다. '
                                        '이제 눈 건강 정보를 확인하실 수 있습니다.')
-                return redirect('event:event_list')
+                return redirect('accounts:profile')
             else:
                 return render(request, 'error.html', {
                     'errors': form.errors
                 })
 
         else:
-            user = request.user
-            form = ProfileModelForm(user)
+            form = ProfileModelForm()
         return render(request, 'accounts/profile_register.html', {
             'form': form
         })
@@ -91,6 +92,16 @@ def profile(request):
         })
 
 
+'''
+
+get_ocr_data
+
+설명:
+
+10회 깜빡였을 때 ajax 요청을 처리하는 api
+'''
+
+
 def get_ocr_data(request):
     if request.user.is_authenticated():
         ocr_time = request.GET.get('ocr_time')
@@ -100,6 +111,21 @@ def get_ocr_data(request):
         else:
             profile.calculate_ocr_pm()
         data = {"ok": True}
+        return JsonResponse(data, status=200)
     else:
         data = {"ok": False, "msg": "anoymoususer"}
-    return JsonResponse(data, status=200)
+        return JsonResponse(data, status=403)
+
+
+'''
+rank_user
+
+이번 달 유저의 눈깜빡임수 랭킹
+'''
+
+
+def rank_user(request):
+    profile_list = Profile.objects.order_by('-ocr_month_count').all()[:10]
+    return render(request, 'accounts/rank_user.html', {
+        "profile_list": profile_list
+    })
