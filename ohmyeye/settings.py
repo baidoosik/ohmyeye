@@ -37,7 +37,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'home'
+    'home',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+    'core',
+    'accounts',
+    'eye'
 ]
 
 MIDDLEWARE = [
@@ -55,7 +63,7 @@ ROOT_URLCONF = 'ohmyeye.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'ohmyeye', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -101,6 +109,19 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+# django all-auth 추가
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+# 디폴트 SITE의 id
+# 등록하지 않으면, 각 요청 시에 host명의 Site 인스턴스를 찾습니다.
+SITE_ID = 1
+
+SOCIALACCOUNT_EMAIL_VERIFICATION = 'none'
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
@@ -129,3 +150,16 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+# 로그인 관련 셋
+LOGIN_URL = 'accounts/social/login/'
+LOGOUT_REDIRECT_URL = 'accounts/social/login/'
+LOGIN_REDIRECT_URL = '/accounts/profile/'
+
+AUTH_USER_MODEL = 'auth.User'
+
+# logout 확인 메세지를 보지 않는다.
+ACCOUNT_LOGOUT_ON_GET = True
+# logout 후 login 페이지로 redirect
+ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/social/login'

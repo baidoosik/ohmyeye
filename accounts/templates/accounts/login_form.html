@@ -1,0 +1,11 @@
+{% extends 'accounts/layout.html' %}
+{% load static %}
+{% load socialaccount %}
+{% load static %}
+{% block contents %}
+<div>
+    <h2>소셜 로그인</h2>
+    <a href="{% url "accounts:profile" %}">프로필</a>
+    <a href="{% url "accounts:logout" %}">로그아웃</a>
+</div>
+{% endblock %}
