@@ -1,3 +1,5 @@
+import datetime
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
@@ -89,7 +91,15 @@ def profile(request):
         })
 
 
-@login_required
 def get_ocr_data(request):
-    profile = Profile.objects.filter(user=request.user).first()
-    ocr_time = request.GET.get('ocr_time')
+    if request.user.is_authenticated():
+        ocr_time = request.GET.get('ocr_time')
+        profile = Profile.objects.filter(user=request.user).first()
+        if datetime.datetime.now().hour < 12:
+            profile.calculate_ocr_am()
+        else:
+            profile.calculate_ocr_pm()
+        data = {"ok": True}
+    else:
+        data = {"ok": False, "msg": "anoymoususer"}
+    return JsonResponse(data, status=200)
