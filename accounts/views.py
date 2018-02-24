@@ -137,6 +137,13 @@ def rank_user(request):
     })
 
 
+'''
+get_lastest_ocr
+
+유저의 최신 ibi 데이터 6개 리스트로 응답
+'''
+
+
 def get_lastest_ocr(request):
     if request.user.is_authenticated():
         profile = Profile.objects.filter(user=request.user).first()
