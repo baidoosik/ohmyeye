@@ -107,9 +107,9 @@ def get_ocr_data(request):
         ocr_time = request.GET.get('ocr_time')
         profile = Profile.objects.filter(user=request.user).first()
         if datetime.datetime.now().hour < 12:
-            profile.calculate_ocr_am()
+            profile.calculate_ocr_am(ocr_time)
         else:
-            profile.calculate_ocr_pm()
+            profile.calculate_ocr_pm(ocr_time)
         data = {"ok": True}
         return JsonResponse(data, status=200)
     else:
