@@ -1,0 +1,32 @@
+# pyc
+*.pyc
+__pycache__
+
+# virualenv
+venv/*
+
+# db
+*.sqlite3
+.DS_Store
+
+# envs.json
+envs.json
+
+# pickle and
+*.pickle
+
+# idea
+.idea
+
+# media file
+media/
+
+# jupyter file
+.ipynb_checkpoints
+*.ipynb
+
+# static
+staticfiles
+
+# ngrok
+ngrok
